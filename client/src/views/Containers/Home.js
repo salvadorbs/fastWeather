@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { LightningBolt } from '../assets/lightning.svg';
-import { RadioButton } from '../Components/index';
 
 export default class Home extends React.Component {
 
@@ -10,18 +9,11 @@ export default class Home extends React.Component {
 
     this.state = {
       locationData: '',
-      locationType: 'cityName',
+      locationType: 'name',
     };
 
-    this.handleRadioInputChange = this.handleRadioInputChange.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleInputFieldChange = this.handleInputFieldChange.bind(this);
-  }
-
-  handleRadioInputChange(event) {
-    this.setState({
-      locationType: event.target.value,
-    });
   }
 
   handleInputFieldChange(event) {
@@ -41,29 +33,17 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <div className='header'>
-          <h2>Weather Forecast</h2>
-          <img src={LightningBolt}/>
-        </div>
-        <div className="instructions">
-          <p>Inserisci un luogo.</p>
-        </div>
-        <div className='cityInput'>
+        <p className='card__title'>Simply Weather</p>
+        <p className='card__subtitle'>View the current weather for your area:</p>
+        <div className='input'>
           <input
             type='text'
-            placeholder='Inserisci...'
             name='city'
             onChange={this.handleInputFieldChange}
+            className='form__input'
           />
-          <button onClick={this.handleButtonClick}>ENTER</button>
-        </div>
-        <div className='radio-button-section'>
-          <RadioButton
-            value='name'
-            isSelected={this.state.locationType === 'name'}
-            onChange={this.handleRadioInputChange}
-            radioButtonLabel='City name'
-          />
+          <label htmlFor="city" className="form__label">City Name</label>
+          <button className='button' onClick={this.handleButtonClick}>Check weather</button>
         </div>
       </div>
     );
