@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { LightningBolt } from '../assets/lightning.svg';
-
 export default class Home extends React.Component {
 
   constructor(props) {

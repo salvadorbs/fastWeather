@@ -72,7 +72,7 @@ class CurrentWeather extends Component {
     const weatherSearchData = this.props.location.state;
     const handleApiResponse = this.handleApiResponse;
 
-    weatherAppAPI({}, weatherSearchData, function(err, data) {
+    weatherAppAPI({}, weatherSearchData, function (err, data) {
       if (err) {
         handleApiResponse(err);
       } else {
@@ -83,18 +83,19 @@ class CurrentWeather extends Component {
 
   render() {
     const WeatherCardError = (
-      <div className='weatherCardContainer'>
-        <div className='weatherCardError'>
-          <img src={NoLocationFound} alt='no location found'/>
-          <p> Nessun luogo trovato!</p>
-          <Link to='/'><button>Riprova</button></Link>
+      <div className='errorView'>
+        <p className='card__title'>No location found!</p>
+        <div>
+          <img src={NoLocationFound} alt='no location found' />
         </div>
+        <Link to='/'>
+          <button className='button button--small reset'>Try Again</button>
+        </Link>
       </div>
     );
 
     const WeatherConditions = (
-
-      this.state.cityNotFound === 404 ? <div> { WeatherCardError } </div> :
+      this.state.cityNotFound === 404 ? <div> {WeatherCardError} </div> :
 
         <div>
           <div className='homeBtn'>
@@ -102,7 +103,7 @@ class CurrentWeather extends Component {
           </div>
           <div className='weatherCardContainer'>
             <div className='weatherCard'>
-              <img src={this.state.weatherIcon} alt='Weather icon'/>
+              <img src={this.state.weatherIcon} alt='Weather icon' />
               <div className='conditionsOverview'>
                 <p>{this.state.currentTemp}</p>
                 <p>{this.state.currentConditionDescription}</p>
@@ -119,21 +120,20 @@ class CurrentWeather extends Component {
     );
 
     const LoadingDisplay = (
-
-      <div className='loading'>
-        <img className='loadingIcon' src={LoadingIcon} alt='loading icon'/>
+      <div className='loadingView'>
+        <p className='card__title'>Loading...</p>
+        <img className='loadingIcon' src={LoadingIcon} alt='loading icon' />
       </div>
 
     );
 
     const CurrentWeatherCard = (
-
       this.state.isLoading === true ? <div> {LoadingDisplay} </div> : <div> {WeatherConditions} </div>
     );
 
     return (
       <div>
-        { CurrentWeatherCard }
+        {CurrentWeatherCard}
       </div>
     );
   }

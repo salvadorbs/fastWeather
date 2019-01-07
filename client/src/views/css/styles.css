@@ -360,3 +360,33 @@ body{
     background-color:#16222A;
     color:#fff
 }
+.errorView img{
+    padding-top: 30px;
+    margin: auto;
+    width: 20%;
+    text-align: center;
+}
+.loadingView img{
+    margin-top: 30px;
+    width: 30%;
+    
+    -webkit-transform: rotate(20deg);
+        -ms-transform: rotate(20deg);
+            transform: rotate(20deg);
+    -webkit-animation: rotateLoading 1.5s ease-in-out infinite;
+            animation: rotateLoading 1.5s ease-in-out infinite; 
+}
+@-webkit-keyframes rotateLoading {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+@keyframes rotateLoading {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
