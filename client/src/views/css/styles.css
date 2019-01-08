@@ -208,7 +208,8 @@ body{
     font-size:1.5em
 }
 .card__subtitle{
-    margin-top:0.25em
+    margin-top:0.25em;
+    margin-bottom: 5px;
 }
 .icon{
     background-image:url("../../icons/compass.svg");
@@ -390,3 +391,6 @@ body{
   to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
+#outputView img{
+    width: 40%;
+}
