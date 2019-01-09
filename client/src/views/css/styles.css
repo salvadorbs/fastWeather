@@ -207,7 +207,7 @@ body{
     font-weight:700;
     font-size:1.5em;
 }
-.card__title::first-letter{
+.card__subtitle::first-letter{
     text-transform: uppercase;
 }
 .card__subtitle{
@@ -292,19 +292,9 @@ body{
     width:100%;
     padding:1em
 }
-.weather-details__item:nth-child(2){
-    border-top:1px solid #ccc;
-    border-bottom:1px solid #ccc
-}
-@media screen and (min-width: 32.5em){
+@media screen and (min-width: 26.5em){
     .weather-details__item{
         width:33.333%
-    }
-    .weather-details__item:nth-child(2){
-        border-top:none;
-        border-bottom:none;
-        border-right:1px solid #ccc;
-        border-left:1px solid #ccc
     }
 }
 .weather-details__label{
