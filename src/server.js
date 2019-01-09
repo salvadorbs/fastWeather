@@ -11,10 +11,6 @@ app.use(express.json());
 // Import Routes directory
 require('./routes')(app);
 
-app.get('/', (req, res) => {
-  res.send('PORT 5000');
-});
-
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
