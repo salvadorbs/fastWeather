@@ -7,7 +7,8 @@
     "test-lint": "eslint --ignore-pattern \"build\" --ignore-path .gitignore .",
     "start": "node src/server.js",
     "client": " cd client && npm run start",
-    "start-all": "npm-run-all -p -r server client"
+    "start-all": "npm-run-all -p -r server client",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
