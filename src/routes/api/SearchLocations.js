@@ -12,7 +12,7 @@ module.exports = (app) => {
       .then(data => {
         res.send({ data });
       })
-      .catch(err => {
+      .catch(_err => {
         res.redirect('/error');
       });
   });
