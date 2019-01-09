@@ -7,8 +7,7 @@
     "test-lint": "eslint --ignore-pattern \"build\" --ignore-path .gitignore .",
     "start": "node src/server.js",
     "client": " cd client && npm run start",
-    "start-all": "npm-run-all -p -r server client",
-    "dev": "npm concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "start-all": "npm-run-all -p -r server client"
   },
   "author": "",
   "license": "ISC",
