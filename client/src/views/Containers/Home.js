@@ -28,6 +28,12 @@ export default class Home extends React.Component {
     });
   }
 
+  _handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.handleButtonClick();
+    }
+  }
+
   render() {
     return (
       <div>
@@ -38,6 +44,7 @@ export default class Home extends React.Component {
             type='text'
             name='city'
             onChange={this.handleInputFieldChange}
+            onKeyPress={this._handleKeyPress}
             className='form__input'
           />
           <label htmlFor="city" className="form__label">City Name</label>

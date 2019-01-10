@@ -4,7 +4,10 @@ import { WEATHER_API_ENDPOINT } from './constants';
 import ThunderStormIcon from './assets/weather_icons/thunder.svg';
 import RainIcon from './assets/weather_icons/rainy-5.svg';
 import SnowIcon from './assets/weather_icons/snowy.svg';
-import ClearIcon from './assets/weather_icons/day.svg';
+import ClearDayIcon from './assets/weather_icons/day.svg';
+import ClearNightIcon from './assets/weather_icons/night.svg';
+import CloudsDayIcon from './assets/weather_icons/cloudy-day.svg';
+import CloudsNightIcon from './assets/weather_icons/cloudy-night.svg';
 import CloudsIcon from './assets/weather_icons/cloudy.svg';
 import FoggyIcon from './assets/weather_icons/foggy.svg';
 
@@ -41,7 +44,7 @@ export function weatherAppAPI(requestHeaders, requestBody, callback) {
   xhr.send(JSON.stringify(requestOptions.body));
 }
 
-export function weatherIcon(weatherId) {
+export function weatherIcon(weatherId, icon) {
   if (weatherId <= 232) {
     return ThunderStormIcon;
   } else if (weatherId >= 300 && weatherId <= 531) {
@@ -51,12 +54,20 @@ export function weatherIcon(weatherId) {
   } else if (weatherId === 741 || weatherId === 701) {
     return FoggyIcon;
   } else if (weatherId === 800) {
-    return ClearIcon;
-  } else if (weatherId >= 801 && weatherId <= 804) {
+    if (icon === '01n') {
+      return ClearNightIcon;
+    }
+    return ClearDayIcon;
+  } else if (weatherId === 801) {
+    if (icon === '02n') {
+      return CloudsNightIcon;
+    }
+    return CloudsDayIcon;
+  } else if (weatherId >= 802 && weatherId <= 804) {
     return CloudsIcon;
   }
 
-  return ClearIcon;
+  return ClearDayIcon;
 }
 
 export function ConvertUnixDate(unix_timestamp) {

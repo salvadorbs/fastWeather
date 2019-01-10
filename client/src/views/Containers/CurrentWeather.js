@@ -27,6 +27,7 @@ class CurrentWeather extends Component {
       temp_max: '',
       dt: '',
       pressure: '',
+      icon: '',
     });
 
     this.handleApiResponse = this.handleApiResponse.bind(this);
@@ -57,6 +58,7 @@ class CurrentWeather extends Component {
       temp_max: Math.round(ApiResponseData.data.main.temp_max - 273.15),
       dt: ConvertUnixDate(ApiResponseData.data.dt),
       pressure: ApiResponseData.data.main.pressure,
+      icon: ApiResponseData.data.weather[0].icon,
     });
   }
 
@@ -79,7 +81,7 @@ class CurrentWeather extends Component {
         <p id="currently" className="card__title">{this.state.cityName}, {this.state.country}</p>
         <p id="location" className="card__subtitle">{this.state.currentConditionDescription}</p>
 
-        <img src={weatherIcon(this.state.weatherId)} alt='Weather icon' />
+        <img src={weatherIcon(this.state.weatherId, this.state.weatherIcon)} alt='Weather icon' />
 
         <ul id="weather" className="weather-details">
           <li className="weather-details__item">
