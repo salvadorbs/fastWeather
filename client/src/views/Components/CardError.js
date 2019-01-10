@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import NoLocationFound from '../../assets/no-location.svg';
 
-export default function WeatherCardError(props) {
+export default function CardError(props) {
   return (
     <div className='errorView'>
       <p className='card__title'>No location found!</p>
