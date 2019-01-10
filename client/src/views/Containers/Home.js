@@ -37,7 +37,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <p className='card__title'>Simply Weather</p>
+        <p className='card__title'>Fast Weather</p>
         <p className='card__subtitle'>View the current weather for your area:</p>
         <div className='input'>
           <input

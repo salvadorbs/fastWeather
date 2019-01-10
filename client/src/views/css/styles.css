@@ -286,7 +286,9 @@ body{
     display:flex;
     -ms-flex-wrap:wrap;
     flex-wrap:wrap;
-    list-style:none
+    list-style:none;
+    align-items: center;
+    justify-content: center;
 }
 .weather-details__item{
     width:100%;
