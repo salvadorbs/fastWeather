@@ -4,12 +4,14 @@ import { WEATHER_API_ENDPOINT } from './constants';
 import ThunderStormIcon from './assets/weather_icons/thunder.svg';
 import RainIcon from './assets/weather_icons/rainy-5.svg';
 import SnowIcon from './assets/weather_icons/snowy.svg';
-import ClearDayIcon from './assets/weather_icons/day.svg';
-import ClearNightIcon from './assets/weather_icons/night.svg';
-import CloudsDayIcon from './assets/weather_icons/cloudy-day.svg';
-import CloudsNightIcon from './assets/weather_icons/cloudy-night.svg';
 import CloudsIcon from './assets/weather_icons/cloudy.svg';
 import FoggyIcon from './assets/weather_icons/foggy.svg';
+
+import ClearDayIcon from './assets/weather_icons/day.svg';
+import ClearNightIcon from './assets/weather_icons/night.svg';
+
+import CloudsDayIcon from './assets/weather_icons/cloudy-day.svg';
+import CloudsNightIcon from './assets/weather_icons/cloudy-night.svg';
 
 export function weatherAppAPI(requestHeaders, requestBody, callback) {
   var xhr = new XMLHttpRequest();// eslint-disable-line no-undef
@@ -32,12 +34,16 @@ export function weatherAppAPI(requestHeaders, requestBody, callback) {
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
-      const resposeData = JSON.parse(xhr.response);
-      if (xhr.status !== 200 || resposeData.data.cod !== 200) {
-        return callback(resposeData);
+      if (xhr.status === 404) {
+        return callback({ error: '404' });
       }
 
-      return callback(null, resposeData);
+      const responseData = JSON.parse(xhr.response);
+      if (xhr.status !== 200 || responseData.data.cod !== 200) {
+        return callback(responseData);
+      }
+
+      return callback(null, responseData);
     }
   };
 
